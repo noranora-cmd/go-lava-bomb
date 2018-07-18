@@ -1,3 +1,9 @@
+# go-lava-bomb
+
+This volcano is one ticking bomb!
+
+--------------------------------------------------------
+
 # Requirements
 
 Create a CLI Lava Bomb application that will rumble/print the following noises/messages at the following intervals to stdout:
