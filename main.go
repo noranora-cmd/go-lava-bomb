@@ -17,7 +17,7 @@ func init() {
 func main() {
 	flag.Parse()
 
-	c, err := volcano.New(time.Duration(180 * time.Minute))
+	c, err := volcano.New(time.Duration(240 * time.Minute))
 	if err != nil {
 		log.Fatal(err)
 	}
