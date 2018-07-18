@@ -16,7 +16,7 @@ Only one value should be printed in a given second, e.g. on the hour, only "LAVA
 
 The Lava Bomb application should run for four hours and then exit.
 
-A mechanism should exist for the user to alter any of the printed values while the program is running, i.e. after the clock has run for 10 minutes I should, without stopping the program, be able to change it so that it stops printing "tick" every second and starts printing "quack" instead. 
+A mechanism should exist for the user to alter any of the printed values while the program is running, i.e. after the application has run for 15 minutes, it should be possible, without stopping the program, to change what is printed either per second or per minute, per hour or possibly all noises can change. 
 
 # Implementation
 
