@@ -25,14 +25,16 @@ To be able to dynamically change displayed messages, application must monitor so
 # Usage
 
 - go run main.go
+
 - go run main.go --file=json-file-path
 
-    default file, if the config flag is not provided, is config.json
+        default file, if the config flag is not provided, is config.json
 
 - make dev
+
   CUSTOM_FILE=/data/custom.json  make run
 
-    custom config file needs to start with "/data/" followed by its relative position to the current working directory
+        custom config file needs to start with "/data/" followed by its relative position to the current working directory
 
 # Testing
 
