@@ -1,5 +1,5 @@
 IMAGE_TAG=v1alpha1
-CONFIG_FILE?=./config.json
+CONFIG_FILE?=/data/config.json
 QUAY_PASS?=biggestsecret
 
 build:
