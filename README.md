@@ -12,7 +12,7 @@ Create a CLI Lava Bomb application that will rumble/print the following noises/m
 - "RUMBLE" every minute
 - "LAVAOVERFLOW" every hour
 
-Only one value should be printed in a given second, e.g. on the hour, only "LAVAOVERFLOW" should be printed.
+Only one value should be printed in a given second, e.g. on the hour, only "LAVAOVERFLOW" will be printed.
 
 The Lava Bomb application should run for four hours and then exit.
 
@@ -21,6 +21,19 @@ A mechanism should exist for the user to alter any of the printed values while t
 # Implementation
 
 To be able to dynamically change displayed messages, application must monitor some source from which it can receive new values during the runtime. There are various ways to achieve this, for example watching a local file for content update or using a pub/sub messaging system. Here the simplest, file based, approach was used.
+
+Entry point to the application is main.go, where a new volcano object is created, which then starts erupting.
+The application can be started with a -file flag to specify a custom file, which contains custom noises/messages, and which, on updating and saving, will cause a change in the printouts to the stdout. If no flag is provided, the default file is config.json.
+
+The Erupt method starts three goroutines:
+    - rumble() is responsible for time keeping, ieoutput at prescribed intervals
+    - monitor() is responsible for checking the source of custom changes, ie a file in this case
+    - print() prints out a message when it receives one from a channel (to which it is sent by the rumble goroutine)
+
+sending on done channel and closing the noiseCh channel, to which messages are sent, is used to gracefully finish and close the application.
+
+
+The functionality itself is contained in the volcano package.
 
 # Usage
 
