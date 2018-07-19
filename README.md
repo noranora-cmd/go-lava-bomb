@@ -30,12 +30,19 @@ The Erupt method starts three goroutines:
     - monitor() is responsible for checking the source of custom changes, ie a file in this case
     - print() prints out a message when it receives one from a channel (to which it is sent by the rumble goroutine)
 
-sending on done channel and closing the noiseCh channel, to which messages are sent, is used to gracefully finish and close the application.
-
+Sending on done channel and closing the noiseCh channel, to which messages are sent, is used to gracefully finish and close the application.
 
 The functionality itself is contained in the volcano package.
 
+## Dockerization
+
+A Dockerfile is providing for creating an image, based on the alpine OS. The /data directory serves for binding a local directory durung runtime:
+
+    docker run --name=lava-bomb --rm -v $PWD:/data quay.io/tamarakaufler/lava-bomb:v1alpha1 -file=/data/custom.json
+
 # Usage
+
+Application can be either run as a locally compiled binary or as a docker container. A Makefile is provided with useful shortcut commands.
 
 - go run main.go
 
@@ -59,4 +66,5 @@ Test of the rumble method exceeds the default 30s limit timeout, so it is necess
 
     go test -timeout 180s github.com/tamarakaufler/go-lava-bomb/volcano -run Test_volcano_rumble
 
-Unit tests provide 60.0% coverage.
+Unit tests are implemented for checkFile function and  monitor and rumble methods and provide 60.0% coverage. 
+
