@@ -267,7 +267,7 @@ func Test_volcano_rumble(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "10 second rumbleing with no dynamic noise changes",
+			name: "10 second rumbling with no dynamic noise changes",
 			fields: fields{
 				secCh:         make(chan string, 1),
 				minCh:         make(chan string, 1),
